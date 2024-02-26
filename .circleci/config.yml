@@ -5,11 +5,12 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:11-jdk
+      - image: cimg/base:2021.04
     resource_class: small
     steps:
       - checkout
-      - run: sudo apt update && sudo apt install maven -y && mvn -version
+      - run: sudo apt update && sudo apt install openjdk-11-jre
+      - run: sudo apt install maven -y && mvn -version
       - run: sudo mvn install && ls -l target
 
 workflows:
