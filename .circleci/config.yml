@@ -9,7 +9,7 @@ jobs:
     resource_class: small
     steps:
       - checkout
-      - run: sudo apt install maven -y && mvn -version
+      - run: sudo apt update && sudo apt install maven -y && mvn -version
       - run: sudo mvn install && ls -l target
 
 workflows:
